@@ -1,63 +1,143 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fortnightly Budget Planner</title>
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Andrew Stephenson | Software Developer</title>
+<meta name="description" content="Developer working in TypeScript and the React ecosystem. Projects: Rift Index, TaskFlow, DOOM and Pocket Monsters.">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main class="page">
-    <header class="hero">
-      <p class="eyebrow">Fortnightly planning</p>
-      <h1>Keep your spending on track</h1>
-      <p class="lede">
-        Enter your current balance, how much you want to save each fortnight, and your next payday to see
-        how much you can spend per day without missing your goal.
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">Andrew Stephenson</a>
+    <nav>
+      <a href="#projects">Projects</a>
+      <a href="#stack">Stack</a>
+      <a href="#contact">Links</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero wrap">
+    <p class="eyebrow">Software developer · Sydney</p>
+    <h1>I build full-stack web apps and care about the parts you don't see.</h1>
+    <p class="lede">
+      I work mainly in TypeScript and the React ecosystem. I'm completing a Master of Information Technology
+      part-time at the University of Sydney, on top of a BSc in Computer Science and a BA in Japanese Studies.
+    </p>
+    <p class="cta">
+      <a class="btn primary" href="#projects">See my projects</a>
+      <a class="btn" href="https://github.com/ajrs-dev">GitHub</a>
+      <a class="btn" href="https://linkedin.com/in/andrew-stephenson-4307bb403">LinkedIn</a>
+    </p>
+  </section>
+
+  <section id="projects" class="wrap">
+    <h2>Projects</h2>
+
+    <article class="project">
+      <div class="head">
+        <h3>Rift Index</h3>
+        <p class="tags">Next.js · TypeScript · React · Tailwind CSS · Riot Games API</p>
+      </div>
+      <p>
+        League of Legends champion and player lookup. Browse every champion on the live patch with kits, base stats
+        and skins, or look up any player's rank, champion mastery and recent matches across 17 regions.
       </p>
-    </header>
+      <ul>
+        <li>Caching matched to how often data changes: finished matches for a week, champion data for 12 hours, rank and mastery for minutes, so requests stay inside Riot's rate limits.</li>
+        <li>Server-only API client. Importing it into browser code is a build error, so the API key can't leak into the bundle.</li>
+        <li>Requests fail soft, so one flaky endpoint doesn't blank a whole profile page.</li>
+      </ul>
+      <p class="links">
+        <a href="https://andrewjohnroy.com">Live site</a>
+        <a href="https://github.com/ajrs-dev/lol-tracker">Source</a>
+      </p>
+    </article>
 
-    <section class="card form-card">
-      <div class="field">
-        <label for="balance">Current bank balance</label>
-        <div class="field-row">
-          <span class="prefix">$</span>
-          <input type="number" id="balance" name="balance" min="0" step="0.01" placeholder="0.00" aria-describedby="balance-help" />
-        </div>
-        <small id="balance-help" class="hint">Include only the funds you want available for this fortnight.</small>
+    <article class="project">
+      <div class="head">
+        <h3>TaskFlow</h3>
+        <p class="tags">React · TypeScript · Vite · Node.js · Express · SQLite · Vercel</p>
       </div>
+      <p>
+        Full-stack Kanban task manager. Create boards, add lists and cards, and drag cards within and between lists
+        with the order saved across refreshes.
+      </p>
+      <ul>
+        <li>Bcrypt-hashed passwords and JWT sessions, with protected routes on both the API and the front end.</li>
+        <li>Every request body validated with Zod before it reaches the database.</li>
+        <li>Backend integration tests (Vitest and Supertest) and GitHub Actions running typecheck, build and tests on every push.</li>
+        <li>One Express app that runs as a local server or as a Vercel serverless function.</li>
+      </ul>
+      <p class="links">
+        <a href="https://taskflow-seven-ivory-67.vercel.app">Live demo</a>
+        <a href="https://github.com/ajrs-dev/taskflow">Source</a>
+      </p>
+    </article>
 
-      <div class="field">
-        <label for="savings">Savings goal for this fortnight</label>
-        <div class="field-row">
-          <span class="prefix">$</span>
-          <input type="number" id="savings" name="savings" min="0" step="0.01" placeholder="0.00" aria-describedby="savings-help" />
-        </div>
-        <small id="savings-help" class="hint">This amount will be set aside before calculating daily spending.</small>
+    <article class="project">
+      <div class="head">
+        <h3>DOOM (browser game)</h3>
+        <p class="tags">Vanilla JavaScript · Canvas · Web Audio</p>
       </div>
+      <p>
+        A playable DOOM-style first-person game in a single 94 KB HTML file. No engine, libraries, image files or
+        audio files: every visual and sound is generated by code at runtime. Built with Claude as an AI pair programmer.
+      </p>
+      <p class="links">
+        <a href="https://ajrs-dev.github.io/doom/">Play it</a>
+        <a href="https://github.com/ajrs-dev/doom">Source</a>
+      </p>
+    </article>
 
-      <div class="field">
-        <label for="payday">Next payday</label>
-        <input type="date" id="payday" name="payday" aria-describedby="payday-help" />
-        <small id="payday-help" class="hint">If the date has already passed, we'll roll it forward in fortnightly steps.</small>
+    <article class="project">
+      <div class="head">
+        <h3>Pocket Monsters</h3>
+        <p class="tags">Vanilla JavaScript · Canvas</p>
       </div>
-    </section>
+      <p>
+        A small monster-catching RPG in a single HTML file with no dependencies or build step: tile-based overworld,
+        random encounters, turn-based battles with type effectiveness, catching, XP and level-ups.
+      </p>
+      <p class="links">
+        <a href="https://ajrs-dev.github.io/pocket-monsters/">Play it</a>
+        <a href="https://github.com/ajrs-dev/pocket-monsters">Source</a>
+      </p>
+    </article>
 
-    <section class="card results" aria-live="polite">
-      <div class="metrics">
-        <div class="metric">
-          <p class="metric-label">Days until payday</p>
-          <p class="metric-value" id="days-until">--</p>
-        </div>
-        <div class="metric">
-          <p class="metric-label">Spendable per day</p>
-          <p class="metric-value" id="daily-spend">--</p>
-        </div>
-      </div>
-      <p class="summary" id="summary">Enter your details to see your plan.</p>
-    </section>
-  </main>
+    <p class="note">
+      University coursework (a React and MongoDB storefront, a vanilla JavaScript bookshop and a React Native wellbeing
+      app built with Firebase) isn't published here to respect academic integrity. I'm happy to talk through it.
+    </p>
+  </section>
 
-  <script src="script.js"></script>
+  <section id="stack" class="wrap">
+    <h2>Stack</h2>
+    <dl class="stack">
+      <div><dt>Languages</dt><dd>JavaScript, TypeScript, Python, SQL</dd></div>
+      <div><dt>Frameworks and runtimes</dt><dd>React, React Native, Next.js, Node.js, Express, Expo</dd></div>
+      <div><dt>Databases</dt><dd>MySQL, MongoDB, SQLite, Firebase</dd></div>
+      <div><dt>Tools</dt><dd>Git, GitHub Actions, Vercel, Linux, Claude Code</dd></div>
+      <div><dt>Also worked with</dt><dd>C, C++, Ruby, PHP, C#/.NET, x86-64 and MIPS assembly</dd></div>
+    </dl>
+  </section>
+
+  <section id="contact" class="wrap">
+    <h2>Links</h2>
+    <ul class="plain">
+      <li><a href="https://github.com/ajrs-dev">GitHub</a></li>
+      <li><a href="https://linkedin.com/in/andrew-stephenson-4307bb403">LinkedIn</a></li>
+      <li><a href="https://leetcode.com/u/ajrs/">LeetCode</a> · 100 problems solved in Python, plus C# and JavaScript</li>
+      <li><a href="https://projecteuler.net/profile/AndrewStephenson.png">Project Euler</a></li>
+    </ul>
+  </section>
+</main>
+
+<footer class="wrap foot">
+  <p>© 2026 Andrew Stephenson</p>
+</footer>
 </body>
 </html>
