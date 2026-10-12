@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Andrew Stephenson | Software Developer</title>
-<meta name="description" content="Developer working in TypeScript and the React ecosystem. Projects: Rift Index, TaskFlow, DOOM and Pocket Monsters.">
+<meta name="description" content="Developer working in TypeScript and the React ecosystem. Projects: Rift Index, Heartbeat, TaskFlow, DOOM and Pocket Monsters.">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -54,6 +54,27 @@
       <p class="links">
         <a href="https://andrewjohnroy.com">Live site</a>
         <a href="https://github.com/ajrs-dev/lol-tracker">Source</a>
+      </p>
+    </article>
+
+    <article class="project">
+      <div class="head">
+        <h3>Heartbeat</h3>
+        <p class="tags">React · TypeScript · Node.js · Express · SQLite · Docker</p>
+      </div>
+      <p>
+        Uptime and latency monitoring service. Add a URL and a scheduler checks it on an interval, tracks uptime and
+        p95 response time, opens incidents, and streams results to open dashboards live. Each account can publish a
+        public status page.
+      </p>
+      <ul>
+        <li>Server-side request forgery protection, because users choose the URLs the server fetches: validation on creation, address checks at connect time to stop DNS rebinding, and no redirect-following.</li>
+        <li>Incidents open after two consecutive failures (back-dated to the first) and close on recovery. Live updates use server-sent events.</li>
+        <li>scrypt password hashing, hashed server-side sessions, rate limiting, strict per-user data isolation.</li>
+        <li>165 tests (Vitest, Supertest, Testing Library), CI on every push, and a multi-stage Docker image that is smoke-tested in CI.</li>
+      </ul>
+      <p class="links">
+        <a href="https://github.com/ajrs-dev/heartbeat">Source and write-up</a>
       </p>
     </article>
 
@@ -120,7 +141,7 @@
       <div><dt>Languages</dt><dd>JavaScript, TypeScript, Python, SQL</dd></div>
       <div><dt>Frameworks and runtimes</dt><dd>React, React Native, Next.js, Node.js, Express, Expo</dd></div>
       <div><dt>Databases</dt><dd>MySQL, MongoDB, SQLite, Firebase</dd></div>
-      <div><dt>Tools</dt><dd>Git, GitHub Actions, Vercel, Linux, Claude Code</dd></div>
+      <div><dt>Tools</dt><dd>Git, GitHub Actions, Docker, Vercel, Linux, Claude Code</dd></div>
       <div><dt>Also worked with</dt><dd>C, C++, Ruby, PHP, C#/.NET, x86-64 and MIPS assembly</dd></div>
     </dl>
   </section>
